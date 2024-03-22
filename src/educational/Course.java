@@ -1,14 +1,19 @@
+package educational;
+
 import java.util.ArrayList;
 
 public class Course extends EducationalComponent {
-    ArrayList<EducationalComponent> components = new ArrayList<>();
-    String name;
-    CourseProgress progress;
+    private ArrayList<EducationalComponent> components = new ArrayList<>();
+    private String name;
+    private CourseProgress progress;
 
 
     public Course(String course) {
-
         this.name = course;
+    }
+
+    public CourseProgress getProgress() {
+        return this.progress;
     }
 
     public void setProgress(CourseProgress progress) {
@@ -37,7 +42,7 @@ public class Course extends EducationalComponent {
 
     @Override
     public void display() {
-        System.out.println("Course: " + name);
+        System.out.println("Educational.Course: " + name);
         for (EducationalComponent component : components) {
             component.display();
         }

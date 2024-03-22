@@ -1,3 +1,5 @@
+package educational;
+
 public class CourseProgress {
     private String currentLesson;
     private int lessonProgress;

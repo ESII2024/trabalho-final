@@ -1,11 +1,13 @@
-import Educational.EducationalObject;
+package educational;
 
-public class CertificateDecorator extends EducationalObject {
+public class BadgeDecorator extends EducationalObject {
     private EducationalObject decoratedObject;
 
-    public CertificateDecorator(EducationalObject decoratedObject) {
+    public BadgeDecorator(EducationalObject decoratedObject) {
         this.decoratedObject = decoratedObject;
     }
+
+    public BadgeDecorator() {}
 
     @Override
     public void display() {

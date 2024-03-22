@@ -1,9 +1,4 @@
-package Factories;
-
-import Educational.EducationalObject;
-import Educational.Quiz;
-import Educational.Video;
-import Educational.Article;
+package educational;
 
 public class EducationalObjectFactory {
     public static EducationalObject createObject(String type) {

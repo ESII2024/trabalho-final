@@ -1,72 +1,80 @@
-import Educational.BadgeDecorator;
-import Educational.Quiz;
-import Factories.EducationalObjectFactory;
-import Educational.EducationalObject;
+import educational.*;
+import data.ConfigurationManager;
 
 public class Main {
     public static void main(String[] args) {
+        Teste();
+        SetupConstants();
+    }
 
+    private static void SetupConstants() {
+        ConfigurationManager configManager = ConfigurationManager.getInstance();
+        configManager.setConfiguration("MAX_POOL_SIZE", 10);
+        //System.out.println("MAX_POOL_SIZE " + configManager.getConfiguration("MAX_POOL_SIZE"));
+    }
+
+    private static void Teste() {
         // Test Singleton pattern - DANIEL
-        /*ConfigurationManager configManager = ConfigurationManager.getInstance();
+        ConfigurationManager configManager = ConfigurationManager.getInstance();
         configManager.setConfiguration("app.name", "E-Learning App");
         configManager.setConfiguration("app.version", "1.0");
         System.out.println("App Name: " + configManager.getConfiguration("app.name"));
-        System.out.println("App Version: " + configManager.getConfiguration("app.version"));*/
+        System.out.println("App Version: " + configManager.getConfiguration("app.version"));
 
         // Test Factory pattern - DANIEL
-        /*EducationalObject quiz = EducationalObjectFactory.createObject("quiz");
+        EducationalObject quiz = EducationalObjectFactory.createObject("quiz");
         EducationalObject video = EducationalObjectFactory.createObject("video");
         EducationalObject article = EducationalObjectFactory.createObject("article");
         quiz.display();
         video.display();
-        article.display();*/
+        article.display();
 
         // Test Bridge pattern - MIGUEL
-        /*EducationalContent quizWeb = new Quiz(new WebPlatform());
-        EducationalContent quizMobile = new Quiz(new MobilePlatform());
+        /*Educational.EducationalContent quizWeb = new Quiz(new platform.WebPlatform());
+        Educational.EducationalContent quizMobile = new Quiz(new platform.MobilePlatform());
         quizWeb.display();
         quizMobile.display();*/
 
         // Test Composite pattern - LUCAS
-        /*EducationalComponent lesson1 = new Lesson("Lesson 1");
-        EducationalComponent lesson2 = new Lesson("Lesson 2");
-        EducationalComponent course1 = new Course("Course 1");
+        EducationalComponent lesson1 = new Lesson("Educational.Lesson 1");
+        EducationalComponent lesson2 = new Lesson("Educational.Lesson 2");
+        EducationalComponent course1 = new Course("Educational.Course 1");
         course1.addComponent(lesson1);
         course1.addComponent(lesson2);
-        course1.display();*/
+        course1.display();
 
         // Test Object Pool pattern - JOAO
-        /*DatabaseConnection connection1 = DatabaseConnection.getConnection();
+        DatabaseConnection connection1 = DatabaseConnection.getConnection();
         DatabaseConnection connection2 = DatabaseConnection.getConnection();
         connection1.releaseConnection(connection1);
-        connection2.releaseConnection(connection2);*/
+        connection2.releaseConnection(connection2);
 
         // Test Memento pattern - JOAO
-        /*Course myCourse = new Course("My Course");
-        CourseProgress progress1 = new CourseProgress("Lesson 1", 50);
+        Course myCourse = new Course("My Educational.Course");
+        CourseProgress progress1 = new CourseProgress("Educational.Lesson 1", 50);
         myCourse.setProgress(progress1);
         CourseProgress savedProgress = myCourse.saveProgress();
-        System.out.println("Current Lesson: " + myCourse.progress.getCurrentLesson());
-        System.out.println("Lesson Progress: " + myCourse.progress.getLessonProgress());
-        CourseProgress progress2 = new CourseProgress("Lesson 2", 25);
+        System.out.println("Current Educational.Lesson: " + myCourse.getProgress().getCurrentLesson());
+        System.out.println("Educational.Lesson Progress: " + myCourse.getProgress().getLessonProgress());
+        CourseProgress progress2 = new CourseProgress("Educational.Lesson 2", 25);
         myCourse.setProgress(progress2);
-        System.out.println("Current Lesson: " + myCourse.progress.getCurrentLesson());
-        System.out.println("Lesson Progress: " + myCourse.progress.getLessonProgress());
+        System.out.println("Current Educational.Lesson: " + myCourse.getProgress().getCurrentLesson());
+        System.out.println("Educational.Lesson Progress: " + myCourse.getProgress().getLessonProgress());
         myCourse.restoreProgress(savedProgress);
-        System.out.println("Current Lesson: " + myCourse.progress.getCurrentLesson());
-        System.out.println("Lesson Progress: " + myCourse.progress.getLessonProgress());*/
+        System.out.println("Current Educational.Lesson: " + myCourse.getProgress().getCurrentLesson());
+        System.out.println("Educational.Lesson Progress: " + myCourse.getProgress().getLessonProgress());
 
-        // Test Decorator pattern - LUCAS
-        /*EducationalObject quizWithBadge = new BadgeDecorator(new Quiz());
+        // Test Decorator pattern - LUCAS | verificar se esta bem
+        EducationalObject quizWithBadge = new BadgeDecorator(new Quiz());
         quizWithBadge.display();
         EducationalObject quizWithCertificate = new CertificateDecorator(quizWithBadge);
-        quizWithCertificate.display();*/
+        quizWithCertificate.display();
     }
 }
 
 /**
 
- 1. Singleton: A instância singleton de `ConfigurationManager` é obtida e utilizada para definir e obter configurações globais.
+ 1. Singleton: A instância singleton de `data.ConfigurationManager` é obtida e utilizada para definir e obter configurações globais.
 
  2. Factory: O método `createObject` da classe `EducationalObjectFactory` é utilizado para criar diferentes tipos de objetos educacionais (quiz, vídeo e artigo), que são exibidos.
 

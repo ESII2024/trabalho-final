@@ -1,13 +1,11 @@
-package Educational;
+package educational;
 
-public class BadgeDecorator extends EducationalObject {
+public class CertificateDecorator extends EducationalObject {
     private EducationalObject decoratedObject;
 
-    public BadgeDecorator(EducationalObject decoratedObject) {
+    public CertificateDecorator(EducationalObject decoratedObject) {
         this.decoratedObject = decoratedObject;
     }
-
-    public BadgeDecorator() {}
 
     @Override
     public void display() {

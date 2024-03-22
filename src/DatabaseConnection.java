@@ -9,7 +9,6 @@ public class DatabaseConnection {
     private boolean inUse = false;
 
     private DatabaseConnection() {
-
     }
 
     public static DatabaseConnection getConnection() {

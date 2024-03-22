@@ -1,3 +1,5 @@
+package educational;
+
 public class Lesson extends EducationalComponent {
     String name;
 
@@ -12,6 +14,6 @@ public class Lesson extends EducationalComponent {
 
     @Override
     public void display() {
-        System.out.println("Lesson: " + name);
+        System.out.println("Educational.Lesson: " + name);
     }
 }

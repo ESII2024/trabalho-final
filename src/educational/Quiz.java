@@ -1,9 +1,8 @@
-package Educational;
+package educational;
 
 public class Quiz extends BadgeDecorator {
     public Quiz() {
         super();
-        //super();
     }
 
     @Override

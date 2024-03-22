@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+package educational;
 
 public abstract class EducationalComponent {
     public void addComponent(Lesson lesson) {

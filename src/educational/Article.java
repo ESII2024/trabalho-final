@@ -1,4 +1,4 @@
-package Educational;
+package educational;
 
 public class Article extends EducationalObject {
     @Override
