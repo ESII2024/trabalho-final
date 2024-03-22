@@ -1,3 +1,5 @@
+import Educational.BadgeDecorator;
+import Educational.Quiz;
 import Factories.EducationalObjectFactory;
 import Educational.EducationalObject;
 

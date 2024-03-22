@@ -1,4 +1,6 @@
-public class CertificateDecorator implements EducationalObject {
+import Educational.EducationalObject;
+
+public class CertificateDecorator extends EducationalObject {
     private EducationalObject decoratedObject;
 
     public CertificateDecorator(EducationalObject decoratedObject) {
@@ -8,10 +10,5 @@ public class CertificateDecorator implements EducationalObject {
     @Override
     public void display() {
         decoratedObject.display();
-        addCertificate();
-    }
-
-    private void addCertificate() {
-        System.out.println("Certificado adicionado!");
     }
 }
