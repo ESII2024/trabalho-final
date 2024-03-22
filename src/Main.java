@@ -20,7 +20,7 @@ public class Main {
         /*EducationalContent quizWeb = new Quiz(new WebPlatform());
         EducationalContent quizMobile = new Quiz(new MobilePlatform());
         quizWeb.display();
-        quizMobile.display();*/
+        quizMobile.display();
 
         // Test Composite pattern - LUCAS
         EducationalComponent lesson1 = new Lesson("Lesson 1");
@@ -28,7 +28,7 @@ public class Main {
         EducationalComponent course1 = new Course("Course 1");
         course1.addComponent(lesson1);
         course1.addComponent(lesson2);
-        course1.display();
+        course1.display();*/
 
         // Test Object Pool pattern - JOAO
         /*DatabaseConnection connection1 = DatabaseConnection.getConnection();
@@ -37,15 +37,19 @@ public class Main {
         connection2.releaseConnection(connection2);*/
 
         // Test Memento pattern - JOAO
-        /*Course myCourse = new Course("My Course");
+        Course myCourse = new Course("My Course");
         CourseProgress progress1 = new CourseProgress("Lesson 1", 50);
         myCourse.setProgress(progress1);
         CourseProgress savedProgress = myCourse.saveProgress();
+        System.out.println("Current Lesson: " + myCourse.progress.getCurrentLesson());
+        System.out.println("Lesson Progress: " + myCourse.progress.getLessonProgress());
         CourseProgress progress2 = new CourseProgress("Lesson 2", 25);
         myCourse.setProgress(progress2);
+        System.out.println("Current Lesson: " + myCourse.progress.getCurrentLesson());
+        System.out.println("Lesson Progress: " + myCourse.progress.getLessonProgress());
         myCourse.restoreProgress(savedProgress);
         System.out.println("Current Lesson: " + myCourse.progress.getCurrentLesson());
-        System.out.println("Lesson Progress: " + myCourse.progress.getLessonProgress());*/
+        System.out.println("Lesson Progress: " + myCourse.progress.getLessonProgress());
 
         // Test Decorator pattern - LUCAS
         /*EducationalObject quizWithBadge = new BadgeDecorator(new Quiz());
