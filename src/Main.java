@@ -1,14 +1,14 @@
 public class Main {
     public static void main(String[] args) {
 
-        // Test Singleton pattern
+        // Test Singleton pattern - DANIEL
         ConfigurationManager configManager = ConfigurationManager.getInstance();
         configManager.setConfiguration("app.name", "E-Learning App");
         configManager.setConfiguration("app.version", "1.0");
         System.out.println("App Name: " + configManager.getConfiguration("app.name"));
         System.out.println("App Version: " + configManager.getConfiguration("app.version"));
 
-        // Test Factory pattern
+        // Test Factory pattern - DANIEL
         EducationalObject quiz = EducationalObjectFactory.createObject("quiz");
         EducationalObject video = EducationalObjectFactory.createObject("video");
         EducationalObject article = EducationalObjectFactory.createObject("article");
@@ -16,13 +16,13 @@ public class Main {
         video.display();
         article.display();
 
-        // Test Bridge pattern
+        // Test Bridge pattern - MIGUEL
         EducationalContent quizWeb = new Quiz(new WebPlatform());
         EducationalContent quizMobile = new Quiz(new MobilePlatform());
         quizWeb.display();
         quizMobile.display();
 
-        // Test Composite pattern
+        // Test Composite pattern - LUCAS
         EducationalComponent lesson1 = new Lesson("Lesson 1");
         EducationalComponent lesson2 = new Lesson("Lesson 2");
         EducationalComponent course1 = new Course("Course 1");
@@ -30,14 +30,13 @@ public class Main {
         course1.addComponent(lesson2);
         course1.display();
 
-        // Test Object Pool pattern
+        // Test Object Pool pattern - JOAO
         DatabaseConnection connection1 = DatabaseConnection.getConnection();
         DatabaseConnection connection2 = DatabaseConnection.getConnection();
-        // Use connections for some operations
         connection1.releaseConnection(connection1);
         connection2.releaseConnection(connection2);
 
-        // Test Memento pattern
+        // Test Memento pattern - JOAO
         Course myCourse = new Course("My Course");
         CourseProgress progress1 = new CourseProgress("Lesson 1", 50);
         myCourse.setProgress(progress1);
@@ -48,7 +47,7 @@ public class Main {
         System.out.println("Current Lesson: " + myCourse.progress.getCurrentLesson());
         System.out.println("Lesson Progress: " + myCourse.progress.getLessonProgress());
 
-        // Test Decorator pattern
+        // Test Decorator pattern - LUCAS
         EducationalObject quizWithBadge = new BadgeDecorator(new Quiz());
         quizWithBadge.display();
         EducationalObject quizWithCertificate = new CertificateDecorator(quizWithBadge);
