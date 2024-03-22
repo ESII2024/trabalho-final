@@ -3,6 +3,7 @@ package Educational;
 public class Quiz extends BadgeDecorator {
     public Quiz() {
         super();
+        //super();
     }
 
     @Override
