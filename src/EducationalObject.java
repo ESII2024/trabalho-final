@@ -1,2 +1,3 @@
-public class EducationalObject {
+public interface EducationalObject {
+    void display();
 }

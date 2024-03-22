@@ -48,10 +48,10 @@ public class Main {
         System.out.println("Lesson Progress: " + myCourse.progress.getLessonProgress());*/
 
         // Test Decorator pattern - LUCAS
-        /*EducationalObject quizWithBadge = new BadgeDecorator(new Quiz());
+        EducationalObject quizWithBadge = new BadgeDecorator(new Quiz());
         quizWithBadge.display();
         EducationalObject quizWithCertificate = new CertificateDecorator(quizWithBadge);
-        quizWithCertificate.display();*/
+        quizWithCertificate.display();
     }
 }
 
