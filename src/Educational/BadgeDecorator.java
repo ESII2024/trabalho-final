@@ -1,4 +1,8 @@
-public class BadgeDecorator implements EducationalObject {
+package Educational;
+
+import Educational.EducationalObject;
+
+public class BadgeDecorator extends EducationalObject {
     private EducationalObject decoratedObject;
 
     public BadgeDecorator(EducationalObject decoratedObject) {
