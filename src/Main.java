@@ -2,7 +2,7 @@ public class Main {
     public static void main(String[] args) {
 
         // Test Singleton pattern - DANIEL
-        ConfigurationManager configManager = ConfigurationManager.getInstance();
+       /* ConfigurationManager configManager = ConfigurationManager.getInstance();
         configManager.setConfiguration("app.name", "E-Learning App");
         configManager.setConfiguration("app.version", "1.0");
         System.out.println("App Name: " + configManager.getConfiguration("app.name"));
@@ -14,13 +14,13 @@ public class Main {
         EducationalObject article = EducationalObjectFactory.createObject("article");
         quiz.display();
         video.display();
-        article.display();
+        article.display();*/
 
         // Test Bridge pattern - MIGUEL
-        EducationalContent quizWeb = new Quiz(new WebPlatform());
+        /*EducationalContent quizWeb = new Quiz(new WebPlatform());
         EducationalContent quizMobile = new Quiz(new MobilePlatform());
         quizWeb.display();
-        quizMobile.display();
+        quizMobile.display();*/
 
         // Test Composite pattern - LUCAS
         EducationalComponent lesson1 = new Lesson("Lesson 1");
@@ -31,13 +31,13 @@ public class Main {
         course1.display();
 
         // Test Object Pool pattern - JOAO
-        DatabaseConnection connection1 = DatabaseConnection.getConnection();
+        /*DatabaseConnection connection1 = DatabaseConnection.getConnection();
         DatabaseConnection connection2 = DatabaseConnection.getConnection();
         connection1.releaseConnection(connection1);
-        connection2.releaseConnection(connection2);
+        connection2.releaseConnection(connection2);*/
 
         // Test Memento pattern - JOAO
-        Course myCourse = new Course("My Course");
+        /*Course myCourse = new Course("My Course");
         CourseProgress progress1 = new CourseProgress("Lesson 1", 50);
         myCourse.setProgress(progress1);
         CourseProgress savedProgress = myCourse.saveProgress();
@@ -45,13 +45,13 @@ public class Main {
         myCourse.setProgress(progress2);
         myCourse.restoreProgress(savedProgress);
         System.out.println("Current Lesson: " + myCourse.progress.getCurrentLesson());
-        System.out.println("Lesson Progress: " + myCourse.progress.getLessonProgress());
+        System.out.println("Lesson Progress: " + myCourse.progress.getLessonProgress());*/
 
         // Test Decorator pattern - LUCAS
-        EducationalObject quizWithBadge = new BadgeDecorator(new Quiz());
+        /*EducationalObject quizWithBadge = new BadgeDecorator(new Quiz());
         quizWithBadge.display();
         EducationalObject quizWithCertificate = new CertificateDecorator(quizWithBadge);
-        quizWithCertificate.display();
+        quizWithCertificate.display();*/
     }
 }
 
