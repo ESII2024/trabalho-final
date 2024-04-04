@@ -1,4 +1,5 @@
 package educational;
 
-public class EducationalContent {
+public interface EducationalContent {
+    void display();
 }

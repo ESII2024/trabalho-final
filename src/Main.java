@@ -30,10 +30,10 @@ public class Main {
         article.display();
 
         // Test Bridge pattern - MIGUEL
-        /*Educational.EducationalContent quizWeb = new Quiz(new platform.WebPlatform());
-        Educational.EducationalContent quizMobile = new Quiz(new platform.MobilePlatform());
+        educational.EducationalContent quizWeb = new Quiz(new platform.WebPlatform());
+        educational.EducationalContent quizMobile = new Quiz(new platform.MobilePlatform());
         quizWeb.display();
-        quizMobile.display();*/
+        quizMobile.display();
 
         // Test Composite pattern - LUCAS
         EducationalComponent lesson1 = new Lesson("Educational.Lesson 1");

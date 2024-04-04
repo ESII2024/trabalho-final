@@ -1,6 +1,6 @@
 package educational;
 
-public class Quiz extends BadgeDecorator {
+public class Quiz extends BadgeDecorator implements EducationalContent {
     public Quiz() {
         super();
     }
@@ -10,3 +10,4 @@ public class Quiz extends BadgeDecorator {
         System.out.println("Displaying Quiz");
     }
 }
+
