@@ -1,4 +1,4 @@
-package educational;
+package Educational;
 
 public class Video extends EducationalObject{
     @Override

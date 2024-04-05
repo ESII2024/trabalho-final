@@ -1,4 +1,4 @@
-package data;
+package Data;
 
 public class LOG {
     public static void OUT(Object X) {

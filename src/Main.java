@@ -1,5 +1,5 @@
-import educational.*;
-import data.ConfigurationManager;
+import Educational.*;
+import Data.ConfigurationManager;
 
 public class Main {
     public static void main(String[] args) {
@@ -30,8 +30,8 @@ public class Main {
         article.display();
 
         // Test Bridge pattern - MIGUEL
-        educational.EducationalContent quizWeb = new Quiz(new platform.WebPlatform());
-        educational.EducationalContent quizMobile = new Quiz(new platform.MobilePlatform());
+        Educational.EducationalContent quizWeb = new BridgePattern.Quiz(new Platform.WebPlatform());
+        Educational.EducationalContent quizMobile = new BridgePattern.Quiz(new Platform.MobilePlatform());
         quizWeb.display();
         quizMobile.display();
 

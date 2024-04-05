@@ -1,4 +1,4 @@
-package educational;
+package Educational;
 
 public class BadgeDecorator extends EducationalObject {
     private EducationalObject decoratedObject;

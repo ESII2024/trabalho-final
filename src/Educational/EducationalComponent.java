@@ -1,4 +1,4 @@
-package educational;
+package Educational;
 
 public abstract class EducationalComponent {
     public void addComponent(Lesson lesson) {

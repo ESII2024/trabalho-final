@@ -1,4 +1,4 @@
-package educational;
+package Educational;
 
 public class EducationalObjectFactory {
     public static EducationalObject createObject(String type) {

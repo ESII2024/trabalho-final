@@ -1,4 +1,4 @@
-package educational;
+package Educational;
 
 public class CourseProgress {
     private String currentLesson;

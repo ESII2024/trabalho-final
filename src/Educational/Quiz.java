@@ -1,4 +1,4 @@
-package educational;
+package Educational;
 
 public class Quiz extends BadgeDecorator implements EducationalContent {
     public Quiz() {
