@@ -1,5 +1,5 @@
 import Educational.*;
-import Data.ConfigurationManager;
+import Singleton.ConfigurationManager;
 
 public class Main {
     public static void main(String[] args) {
