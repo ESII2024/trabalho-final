@@ -1,5 +1,7 @@
 package Educational;
 
+import DecoratorPattern.Quiz;
+
 public class EducationalObjectFactory {
     public static EducationalObject createObject(String type) {
         switch (type) {

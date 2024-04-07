@@ -1,4 +1,7 @@
-package Educational;
+package DecoratorPattern;
+
+import Data.print;
+import Educational.EducationalContent;
 
 public class Quiz extends BadgeDecorator implements EducationalContent {
     public Quiz() {
@@ -7,7 +10,7 @@ public class Quiz extends BadgeDecorator implements EducationalContent {
 
     @Override
     public void display() {
-        System.out.println("Displaying Quiz");
+        print.log("Displaying Quiz");
     }
 }
 

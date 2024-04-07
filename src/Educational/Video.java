@@ -1,8 +1,10 @@
 package Educational;
 
+import Data.print;
+
 public class Video extends EducationalObject{
     @Override
     public void display() {
-        System.out.println("Displaying Video");
+        print.log("Displaying Video");
     }
 }

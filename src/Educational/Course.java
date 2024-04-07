@@ -1,5 +1,7 @@
 package Educational;
 
+import Data.print;
+
 import java.util.ArrayList;
 
 public class Course extends EducationalComponent {
@@ -18,17 +20,17 @@ public class Course extends EducationalComponent {
 
     public void setProgress(CourseProgress progress) {
         this.progress = progress;
-        System.out.println("Progresso do curso definido para: " + progress.getCurrentLesson() + ", Progresso: " + progress.getLessonProgress() + "%");
+        print.log("Progresso do curso definido para: " + progress.getCurrentLesson() + ", Progresso: " + progress.getLessonProgress() + "%");
     }
 
     public CourseProgress saveProgress() {
-        System.out.println("A guardar o progesso do curso...");
+        print.log("A guardar o progesso do curso...");
         return new CourseProgress(progress.getCurrentLesson(), progress.getLessonProgress());
     }
 
     public void restoreProgress(CourseProgress progress) {
         this.progress = progress;
-        System.out.println("Restaurando progresso do curso para: " + progress.getCurrentLesson() + ", Progresso da lesson: " + progress.getLessonProgress() + "%");
+        print.log("Restaurando progresso do curso para: " + progress.getCurrentLesson() + ", Progresso da lesson: " + progress.getLessonProgress() + "%");
     }
 
     @Override
@@ -42,7 +44,7 @@ public class Course extends EducationalComponent {
 
     @Override
     public void display() {
-        System.out.println("Educational.Course: " + name);
+        print.log("Educational.Course: " + name);
         for (EducationalComponent component : components) {
             component.display();
         }

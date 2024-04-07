@@ -1,5 +1,7 @@
 package Educational;
 
+import Data.print;
+
 public class Lesson extends EducationalComponent {
     String name;
 
@@ -14,6 +16,6 @@ public class Lesson extends EducationalComponent {
 
     @Override
     public void display() {
-        System.out.println("Educational.Lesson: " + name);
+        print.log("Educational.Lesson: " + name);
     }
 }

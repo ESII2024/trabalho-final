@@ -1,8 +1,10 @@
 package Educational;
 
+import Data.print;
+
 public class Article extends EducationalObject {
     @Override
     public void display() {
-        System.out.println("Displaying Article");
+        print.log("Displaying Article");
     }
 }

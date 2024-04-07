@@ -1,3 +1,6 @@
+import Data.print;
+import Exceptions.NoAvailableConnectionsException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,13 +25,13 @@ public class DatabaseConnection {
                 if (!connection.inUse) {
                     connection.inUse = true;
                     activeConnections++;
-                    System.out.println("Conexão à base de dados obtida do pool.");
-                    System.out.println("Existem" + " "  + (MAX_POOL_SIZE - activeConnections) + " " + "restantes no pool: ");
+                    print.log("Conexão à base de dados obtida do pool.");
+                    print.log("Existem" + " "  + (MAX_POOL_SIZE - activeConnections) + " " + "restantes no pool: ");
                     return connection;
                 }
             }
         }
-        System.out.println("Não há conexões disponíveis no pool.");
+        print.log("Não há conexões disponíveis no pool.");
         return null;
     }
 
@@ -36,9 +39,9 @@ public class DatabaseConnection {
         if (connection.inUse) {
             connection.inUse = false;
             activeConnections--;
-            System.out.println("Conexão devolvida à pool. Restam " + activeConnections + " conexões ativas.");
+            print.log("Conexão devolvida à pool. Restam " + activeConnections + " conexões ativas.");
         } else {
-            System.out.println("Esta conexão não está a ser usada.");
+            print.log("Esta conexão não está a ser usada.");
         }
     }
 }
