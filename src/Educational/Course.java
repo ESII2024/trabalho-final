@@ -5,7 +5,7 @@ import Data.print;
 import java.util.ArrayList;
 
 public class Course extends EducationalComponent {
-    private ArrayList<EducationalComponent> components = new ArrayList<>();
+    private final ArrayList<EducationalComponent> components = new ArrayList<>();
     private String name;
     private CourseProgress progress;
 

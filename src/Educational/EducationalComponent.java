@@ -7,7 +7,5 @@ public abstract class EducationalComponent {
 
     public abstract void addComponent(EducationalComponent component);
 
-    public void display() {
-
-    }
+    public abstract void display();
 }

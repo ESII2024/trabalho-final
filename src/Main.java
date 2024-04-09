@@ -3,6 +3,7 @@ import DecoratorPattern.BadgeDecorator;
 import DecoratorPattern.CertificateDecorator;
 import DecoratorPattern.Quiz;
 import Educational.*;
+import ObjectPool.DatabaseConnection;
 import SingletonPattern.ConfigurationManager;
 
 public class Main {
@@ -40,17 +41,6 @@ public class Main {
         quizMobile.display();
     }
 
-    private static void CompositePattern() {
-        // Test Composite pattern - LUCAS
-        print.pattern("\nCompositePattern");
-        EducationalComponent lesson1 = new Lesson("Educational.Lesson 1");
-        EducationalComponent lesson2 = new Lesson("Educational.Lesson 2");
-        EducationalComponent course1 = new Course("Educational.Course 1");
-        course1.addComponent(lesson1);
-        course1.addComponent(lesson2);
-        course1.display();
-    }
-
     private static void ObjectPoolPattern() {
         // Test Object Pool pattern - JOAO
         print.pattern("\nObjectPoolPattern");
@@ -80,8 +70,19 @@ public class Main {
         print.test("Educational.Lesson Progress: " + myCourse.getProgress().getLessonProgress());
     }
 
+    private static void CompositePattern() {
+        // Test Composite pattern - LUCAS
+        print.pattern("\nCompositePattern");
+        EducationalComponent lesson1 = new Lesson("Educational.Lesson 1");
+        EducationalComponent lesson2 = new Lesson("Educational.Lesson 2");
+        EducationalComponent course1 = new Course("Educational.Course 1");
+        course1.addComponent(lesson1);
+        course1.addComponent(lesson2);
+        course1.display();
+    }
+
     private static void DecoratorPattern() {
-        // Test Decorator pattern - LUCAS | verificar se esta bem
+        // Test Decorator pattern - LUCAS
         print.pattern("\nDecoratorPattern");
         DecoratorPattern.Quiz quiz = new Quiz();
         EducationalObject quizWithBadge = new BadgeDecorator(quiz);
