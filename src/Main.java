@@ -14,10 +14,10 @@ public class Main {
     private static void SingletonPattern() {
         // Test Singleton pattern - DANIEL
         print.pattern("\nSingletonPattern");
-        ConfigurationManager configManager = ConfigurationManager.getInstance();
-        configManager.setConfiguration("app.name", "E-Learning App");
-        configManager.setConfiguration("app.version", "1.0");
-        print.test("App Name: " + configManager.getConfiguration("app.name"));
+        ConfigurationManager configManager = ConfigurationManager.getInstance(); //cria uma instancia
+        configManager.setConfiguration("app.name", "E-Learning App"); //define 2 configurações nome
+        configManager.setConfiguration("app.version", "1.0"); //versão
+        print.test("App Name: " + configManager.getConfiguration("app.name")); //recupera as configurações e mostra
         print.test("App Version: " + configManager.getConfiguration("app.version"));
     }
 
