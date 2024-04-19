@@ -3,7 +3,7 @@ package Conteudo;
 import Uteis.Enums.ConteudoTipo;
 import Objeto.ObjetoFabrica;
 
-public class ConteudoFabrica implements ObjetoFabrica {
+public class ConteudoFabrica implements ObjetoFabrica<Conteudo> {
     @Override
     public Conteudo createObjeto(ConteudoTipo conteudoTipo) {
         switch (conteudoTipo) {
