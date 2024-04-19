@@ -1,12 +1,13 @@
 package DecoratorPattern;
 
-import Data.print;
-import Educational.EducationalObject;
 
-public class BadgeDecorator extends EducationalObject {
-    private EducationalObject decoratedObject;
+import Objeto.Objeto;
+import Uteis.print;
 
-    public BadgeDecorator(EducationalObject decoratedObject) {
+public class BadgeDecorator implements Objeto {
+    private Objeto decoratedObject;
+
+    public BadgeDecorator(Objeto decoratedObject) {
         this.decoratedObject = decoratedObject;
     }
 

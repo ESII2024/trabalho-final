@@ -4,22 +4,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ConfigurationManager {
-    private static ConfigurationManager instance; //variavel da classe
-    private Map<String, Object> configurations = new HashMap<>(); // mapa armazenar as configurações (chave-valor)
+    private static ConfigurationManager instance;
+    private final Map<String, Object> configurations = new HashMap<>();
 
     private ConfigurationManager() {} //construtor privado obrigando usar o de baixo
 
     public static ConfigurationManager getInstance() { //apenas fornecer acesso unico !!
-        if (instance == null) //caso nao tenha cria
-            instance = new ConfigurationManager();
-        return instance; // se tiver mostra
+        if (instance == null) instance = new ConfigurationManager();
+        return instance;
     }
 
-    public void setConfiguration(String key, Object value) { //para adicionar as configurações
-        this.configurations.put(key, value);
-    }
+    public void setConfiguration(String key, Object value) { this.configurations.put(key, value); }
 
-    public Object getConfiguration(String key) { //recebe a chave devolve o valor da chave no mapa 'configuration'
-        return this.configurations.get(key);
-    }
+    public Object getConfiguration(String key) { return this.configurations.get(key); }
 }

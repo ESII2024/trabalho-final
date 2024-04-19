@@ -1,10 +1,10 @@
-package Educational;
+package Componente;
 
-public class CourseProgress {
+public class CursoProgresso {
     private String currentLesson;
     private int lessonProgress;
 
-    public CourseProgress(String currentLesson, int lessonProgress) {
+    public CursoProgresso(String currentLesson, int lessonProgress) {
         this.currentLesson = currentLesson;
         this.lessonProgress = lessonProgress;
     }

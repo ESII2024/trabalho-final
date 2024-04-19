@@ -1,12 +1,13 @@
 package DecoratorPattern;
 
-import Data.print;
-import Educational.EducationalObject;
 
-public class CertificateDecorator extends EducationalObject {
-    private EducationalObject decoratedObject;
+import Uteis.print;
+import Objeto.Objeto;
 
-    public CertificateDecorator(EducationalObject decoratedObject) {
+public class CertificateDecorator implements Objeto {
+    private Objeto decoratedObject;
+
+    public CertificateDecorator(Objeto decoratedObject) {
         this.decoratedObject = decoratedObject;
     }
 

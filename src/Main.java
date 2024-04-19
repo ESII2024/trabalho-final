@@ -1,10 +1,12 @@
-import Data.print;
+import Componente.*;
 import DecoratorPattern.BadgeDecorator;
-import DecoratorPattern.CertificateDecorator;
-import DecoratorPattern.Quiz;
-import Educational.*;
-import ObjectPool.DatabaseConnection;
-import SingletonPattern.ConfigurationManager;
+import Uteis.Enums.ConteudoTipo;
+import Uteis.print;
+import Conteudo.*;
+import Objeto.*;
+import ObjectPool.*;
+import Plataforma.*;
+import SingletonPattern.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,7 +14,6 @@ public class Main {
     }
 
     private static void SingletonPattern() {
-        // Test Singleton pattern - DANIEL
         print.pattern("\nSingletonPattern");
         ConfigurationManager configManager = ConfigurationManager.getInstance(); //cria uma instancia
         configManager.setConfiguration("app.name", "E-Learning App"); //define 2 configurações nome
@@ -22,27 +23,49 @@ public class Main {
     }
 
     private static void FactoryPattern() {
-        // Test Factory pattern - DANIEL
         print.pattern("\nFactoryPattern");
-        EducationalObject quiz = EducationalObjectFactory.createObject("quiz");
-        EducationalObject video = EducationalObjectFactory.createObject("video");
-        EducationalObject article = EducationalObjectFactory.createObject("article");
-        quiz.display();
-        video.display();
-        article.display();
+
+        ObjetoFabrica fabrica = new ConteudoFabrica();
+
+        Conteudo articuloObjeto = fabrica.getObjeto(ConteudoTipo.ARTICULO);
+        articuloObjeto.display();
+
+        Conteudo videoObjeto = fabrica.getObjeto(ConteudoTipo.VIDEO);
+        videoObjeto.display();
+
+        Conteudo quizObjeto = fabrica.getObjeto(ConteudoTipo.QUIZ);
     }
 
     private static void BridgePattern() {
-        // Test Bridge pattern - MIGUEL
         print.pattern("\nBridgePattern");
-        Educational.EducationalContent quizWeb = new BridgePattern.Quiz(new Platform.WebPlatform());
-        Educational.EducationalContent quizMobile = new BridgePattern.Quiz(new Platform.MobilePlatform());
-        quizWeb.display();
-        quizMobile.display();
+
+        Conteudo quiz = new QuizConteudo();
+        Plataforma webQuiz = new WebPlataforma(quiz);
+        webQuiz.display();
+        Plataforma webMovel = new MovelPlataforma(quiz);
+        webMovel.display();
+        Plataforma webDesktop = new DesktopPlataforma(quiz);
+        webDesktop.display();
+
+        Conteudo articulo = new ArticuloConteudo();
+        Plataforma articuloQuiz = new WebPlataforma(articulo);
+        articuloQuiz.display();
+        Plataforma articuloMovel = new MovelPlataforma(articulo);
+        articuloMovel.display();
+        Plataforma articuloDesktop = new DesktopPlataforma(articulo);
+        articuloDesktop.display();
+
+        Conteudo video = new VideoConteudo();
+        Plataforma videoQuiz = new WebPlataforma(video);
+        videoQuiz.display();
+        Plataforma videoMovel = new MovelPlataforma(video);
+        videoMovel.display();
+        Plataforma videoDesktop = new DesktopPlataforma(video);
+        videoDesktop.display();
+
     }
 
     private static void ObjectPoolPattern() {
-        // Test Object Pool pattern - JOAO
         print.pattern("\nObjectPoolPattern");
         DatabaseConnection connection1 = DatabaseConnection.getConnection();
         DatabaseConnection connection2 = DatabaseConnection.getConnection();
@@ -53,57 +76,50 @@ public class Main {
     }
 
     private static void MementoPattern() {
-        // Test Memento pattern - JOAO
         print.pattern("\nMementoPattern");
-        Course myCourse = new Course("My Educational.Course");
-        CourseProgress progress1 = new CourseProgress("Educational.Lesson 1", 50);
-        myCourse.setProgress(progress1);
-        CourseProgress savedProgress = myCourse.saveProgress();
-        print.test("Current Educational.Lesson: " + myCourse.getProgress().getCurrentLesson());
-        print.test("Educational.Lesson Progress: " + myCourse.getProgress().getLessonProgress());
-        CourseProgress progress2 = new CourseProgress("Educational.Lesson 2", 25);
-        myCourse.setProgress(progress2);
-        print.test("Current Educational.Lesson: " + myCourse.getProgress().getCurrentLesson());
-        print.test("Educational.Lesson Progress: " + myCourse.getProgress().getLessonProgress());
-        myCourse.restoreProgress(savedProgress);
-        print.test("Current Educational.Lesson: " + myCourse.getProgress().getCurrentLesson());
-        print.test("Educational.Lesson Progress: " + myCourse.getProgress().getLessonProgress());
+        CursoComponente myCursoComponente = new CursoComponente("My Component.Course");
+        CursoProgresso progress1 = new CursoProgresso("Component.Lesson 1", 50);
+        myCursoComponente.setProgress(progress1);
+        CursoProgresso savedProgress = myCursoComponente.saveProgress();
+        print.test("Current Component.Lesson: " + myCursoComponente.getProgress().getCurrentLesson());
+        print.test("Component.Lesson Progress: " + myCursoComponente.getProgress().getLessonProgress());
+        CursoProgresso progress2 = new CursoProgresso("Component.Lesson 2", 25);
+        myCursoComponente.setProgress(progress2);
+        print.test("Current Component.Lesson: " + myCursoComponente.getProgress().getCurrentLesson());
+        print.test("Component.Lesson Progress: " + myCursoComponente.getProgress().getLessonProgress());
+        myCursoComponente.restoreProgress(savedProgress);
+        print.test("Current Component.Lesson: " + myCursoComponente.getProgress().getCurrentLesson());
+        print.test("Component.Lesson Progress: " + myCursoComponente.getProgress().getLessonProgress());
     }
 
     private static void CompositePattern() {
-        // Test Composite pattern - LUCAS
         print.pattern("\nCompositePattern");
-        EducationalComponent lesson1 = new Lesson("Educational.Lesson 1");
-        EducationalComponent lesson2 = new Lesson("Educational.Lesson 2");
-        EducationalComponent course1 = new Course("Educational.Course 1");
+        Componente lesson1 = new LicaoComponente("Component.Lesson 1");
+        Componente lesson2 = new LicaoComponente("Component.Lesson 2");
+        Componente course1 = new CursoComponente("Component.Course 1");
         course1.addComponent(lesson1);
         course1.addComponent(lesson2);
         course1.display();
     }
 
     private static void DecoratorPattern() {
-        // Test Decorator pattern - LUCAS
-        print.pattern("\nDecoratorPattern");
-        DecoratorPattern.Quiz quiz = new Quiz();
-        EducationalObject quizWithBadge = new BadgeDecorator(quiz);
+        /*print.pattern("\nDecoratorPattern");
+        QuizConteudo quiz = new QuizConteudo();
+        Objeto quizWithBadge = new BadgeDecorator(quiz);
         quizWithBadge.display();
-        EducationalObject quizWithCertificate = new CertificateDecorator(quizWithBadge);
-        quizWithCertificate.display();
+        Objeto quizWithCertificate = new DecoratorPattern.CertificateDecorator(quizWithBadge);
+        quizWithCertificate.display();*/
     }
 
     private static void Teste() {
-        print.responsavel("\n\nDaniel");
         SingletonPattern();
         FactoryPattern();
 
-        print.responsavel("\n\nMiguel");
         BridgePattern();
 
-        print.responsavel("\n\nJoão");
         ObjectPoolPattern();
         MementoPattern();
 
-        print.responsavel("\n\nLucas");
         CompositePattern();
         DecoratorPattern();
     }

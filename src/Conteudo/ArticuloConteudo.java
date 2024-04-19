@@ -1,8 +1,8 @@
-package Educational;
+package Conteudo;
 
-import Data.print;
+import Uteis.print;
 
-public class Article extends EducationalObject {
+public class ArticuloConteudo extends Conteudo {
     @Override
     public void display() {
         print.log("Displaying Article");
