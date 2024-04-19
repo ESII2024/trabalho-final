@@ -114,12 +114,12 @@ public class Main {
     }
 
     private static void Teste() {
-        ///SingletonPattern();
-        ///FactoryPattern();
-        ///BridgePattern();
+        SingletonPattern();
+        FactoryPattern();
+        BridgePattern();
         ObjectPoolPattern();
-        //MementoPattern();
-        //CompositePattern();
-        ///DecoratorPattern();
+        MementoPattern();
+        CompositePattern();
+        DecoratorPattern();
     }
 }

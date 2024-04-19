@@ -7,7 +7,7 @@ import java.util.List;
 
 public class DatabaseConnection {
     private static final int MAX_POOL_SIZE = 10;
-    private static List<DatabaseConnection> connectionPool = new ArrayList<>();
+    private static final List<DatabaseConnection> connectionPool = new ArrayList<>();
     private static int poolSize = 0;
     private static int activeConnections = 0;
     private boolean inUse = false;
