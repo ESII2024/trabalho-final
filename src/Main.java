@@ -1,12 +1,12 @@
+import Complemento.*;
 import Componente.*;
-import DecoratorPattern.BadgeDecorator;
-import Uteis.Enums.ConteudoTipo;
-import Uteis.print;
+import Uteis.*;
 import Conteudo.*;
 import Objeto.*;
 import ObjectPool.*;
 import Plataforma.*;
 import SingletonPattern.*;
+import Uteis.Enums.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -103,24 +103,23 @@ public class Main {
     }
 
     private static void DecoratorPattern() {
-        /*print.pattern("\nDecoratorPattern");
+        print.pattern("\nDecoratorPattern");
         QuizConteudo quiz = new QuizConteudo();
-        Objeto quizWithBadge = new BadgeDecorator(quiz);
-        quizWithBadge.display();
-        Objeto quizWithCertificate = new DecoratorPattern.CertificateDecorator(quizWithBadge);
-        quizWithCertificate.display();*/
+        Complemento quizCracha = new CrachaComplemento(quiz);
+        Complemento quizCrachaCerteficado = new CerteficadoComplemento(quizCracha);
+        Complemento quizCrachaCerteficadoCracha = new CrachaComplemento(quizCrachaCerteficado);
+        Complemento quizCrachaCerteficadoCrachaCracha = new CrachaComplemento(quizCrachaCerteficadoCracha);
+        Complemento quizCrachaCerteficadoCrachaCrachaCerteficado = new CerteficadoComplemento(quizCrachaCerteficadoCrachaCracha);
+        quizCrachaCerteficadoCrachaCrachaCerteficado.display();
     }
 
     private static void Teste() {
-        SingletonPattern();
-        FactoryPattern();
-
-        BridgePattern();
-
+        ///SingletonPattern();
+        ///FactoryPattern();
+        ///BridgePattern();
         ObjectPoolPattern();
-        MementoPattern();
-
-        CompositePattern();
-        DecoratorPattern();
+        //MementoPattern();
+        //CompositePattern();
+        ///DecoratorPattern();
     }
 }
