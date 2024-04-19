@@ -3,19 +3,13 @@ package Componente;
 import Uteis.print;
 
 public class LicaoComponente extends Componente {
-    String name;
-
-    public LicaoComponente(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public void addComponente(Componente componente) {
-
-    }
+    public LicaoComponente(String name) { super(name); }
 
     @Override
     public void display() {
-        print.log("Component.Lesson: " + name);
+        print.log("Lição: " + getNome());
+        for (Componente componente : getComponentes()) {
+            componente.display();
+        }
     }
 }

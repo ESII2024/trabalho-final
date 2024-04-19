@@ -97,10 +97,14 @@ public class Main {
         print.pattern("CompositePattern");
         Componente lesson1 = new LicaoComponente("Componente.Lição 1");
         Componente lesson2 = new LicaoComponente("Componente.Lição 2");
+        Componente licaoglobal = new LicaoComponente("Componente.Lição Global");
         Componente course1 = new CursoComponente("Componente.Curso 1");
         course1.addComponente(lesson1);
         course1.addComponente(lesson2);
         course1.display();
+        print.blank();
+        licaoglobal.addComponente(course1);
+        licaoglobal.display();
     }
 
     private static void DecoratorPattern() {

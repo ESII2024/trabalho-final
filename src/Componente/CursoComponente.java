@@ -5,13 +5,11 @@ import Uteis.print;
 import java.util.ArrayList;
 
 public class CursoComponente extends Componente {
-    private final ArrayList<Componente> componentes = new ArrayList<>();
-    private String name;
     private CursoProgresso progress;
 
 
-    public CursoComponente(String curso) {
-        this.name = curso;
+    public CursoComponente(String nome) {
+        super(nome);
     }
 
     public CursoProgresso getProgress() {
@@ -34,18 +32,9 @@ public class CursoComponente extends Componente {
     }
 
     @Override
-    public void addComponente(Componente componente) {
-        componentes.add(componente);
-    }
-
-    public void removeComponent(Componente componente) {
-        componentes.remove(componente);
-    }
-
-    @Override
     public void display() {
-        print.log("Component.Curso: " + name);
-        for (Componente componente : componentes) {
+        print.log("Curso: " + getNome());
+        for (Componente componente : getComponentes()) {
             componente.display();
         }
     }
