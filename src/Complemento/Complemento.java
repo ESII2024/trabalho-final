@@ -1,7 +1,6 @@
 package Complemento;
 
 import Conteudo.Conteudo;
-import Objeto.Objeto;
 
 public abstract class Complemento extends Conteudo {
     protected Conteudo conteudo;

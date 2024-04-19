@@ -5,7 +5,7 @@ public abstract class Componente {
 
     }
 
-    public abstract void addComponent(Componente componente);
+    public abstract void addComponente(Componente componente);
 
     public abstract void display();
 }

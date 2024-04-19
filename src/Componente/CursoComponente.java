@@ -20,21 +20,21 @@ public class CursoComponente extends Componente {
 
     public void setProgress(CursoProgresso progress) {
         this.progress = progress;
-        print.log("Progresso do curso definido para: " + progress.getCurrentLesson() + ", Progresso: " + progress.getLessonProgress() + "%");
+        print.log("Progresso do curso definido para: " + progress.getLicaoAtual() + ", Progresso: " + progress.getLicaoProgresso() + "%");
     }
 
     public CursoProgresso saveProgress() {
         print.log("A guardar o progesso do curso...");
-        return new CursoProgresso(progress.getCurrentLesson(), progress.getLessonProgress());
+        return new CursoProgresso(progress.getLicaoAtual(), progress.getLicaoProgresso());
     }
 
     public void restoreProgress(CursoProgresso progress) {
         this.progress = progress;
-        print.log("Restaurando progresso do curso para: " + progress.getCurrentLesson() + ", Progresso da lesson: " + progress.getLessonProgress() + "%");
+        print.log("Restaurando progresso do curso para: " + progress.getLicaoAtual() + ", Progresso da lesson: " + progress.getLicaoProgresso() + "%");
     }
 
     @Override
-    public void addComponent(Componente componente) {
+    public void addComponente(Componente componente) {
         componentes.add(componente);
     }
 

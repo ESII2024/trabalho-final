@@ -3,7 +3,6 @@ package Complemento;
 
 import Conteudo.Conteudo;
 import Uteis.print;
-import Objeto.Objeto;
 
 public class CerteficadoComplemento extends Complemento {
     public CerteficadoComplemento(Conteudo conteudo) {

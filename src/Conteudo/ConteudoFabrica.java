@@ -1,12 +1,11 @@
 package Conteudo;
 
-import Objeto.Objeto;
-import Objeto.ObjetoFabrica;
 import Uteis.Enums.ConteudoTipo;
+import Objeto.ObjetoFabrica;
 
-public class ConteudoFabrica extends ObjetoFabrica {
+public class ConteudoFabrica implements ObjetoFabrica {
     @Override
-    protected Conteudo createObjeto(ConteudoTipo conteudoTipo) {
+    public Conteudo createObjeto(ConteudoTipo conteudoTipo) {
         switch (conteudoTipo) {
             case ARTICULO:
                 return new ArticuloConteudo();

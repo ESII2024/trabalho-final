@@ -10,7 +10,7 @@ public class LicaoComponente extends Componente {
     }
 
     @Override
-    public void addComponent(Componente componente) {
+    public void addComponente(Componente componente) {
 
     }
 

@@ -9,11 +9,11 @@ public class CursoProgresso {
         this.lessonProgress = lessonProgress;
     }
 
-    public String getCurrentLesson() {
+    public String getLicaoAtual() {
         return currentLesson;
     }
 
-    public int getLessonProgress() {
+    public int getLicaoProgresso() {
         return lessonProgress;
     }
 }
