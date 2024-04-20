@@ -76,6 +76,20 @@ public class Main {
             connection2.releaseConnection(connection2);
     }
 
+    private static void CompositePattern() {
+        print.pattern("CompositePattern");
+        Componente lesson1 = new LicaoComponente("Componente.Lição 1");
+        Componente lesson2 = new LicaoComponente("Componente.Lição 2");
+        Componente licaoglobal = new LicaoComponente("Componente.Lição Global");
+        Componente course1 = new CursoComponente("Componente.Curso 1");
+        course1.addComponente(lesson1);
+        course1.addComponente(lesson2);
+        course1.display();
+        print.blank();
+        licaoglobal.addComponente(course1);
+        licaoglobal.display();
+    }
+
     private static void MementoPattern() {
         print.pattern("MementoPattern");
         CursoComponente myCursoComponente = new CursoComponente("My Component.Course");
@@ -93,20 +107,6 @@ public class Main {
         print.test("Component.Lesson Progress: " + myCursoComponente.getProgress().getLicaoProgresso());
     }
 
-    private static void CompositePattern() {
-        print.pattern("CompositePattern");
-        Componente lesson1 = new LicaoComponente("Componente.Lição 1");
-        Componente lesson2 = new LicaoComponente("Componente.Lição 2");
-        Componente licaoglobal = new LicaoComponente("Componente.Lição Global");
-        Componente course1 = new CursoComponente("Componente.Curso 1");
-        course1.addComponente(lesson1);
-        course1.addComponente(lesson2);
-        course1.display();
-        print.blank();
-        licaoglobal.addComponente(course1);
-        licaoglobal.display();
-    }
-
     private static void DecoratorPattern() {
         print.pattern("DecoratorPattern");
         QuizConteudo quiz = new QuizConteudo();
@@ -119,12 +119,12 @@ public class Main {
     }
 
     private static void Teste() {
-        SingletonPattern();
-        FactoryPattern();
-        BridgePattern();
+        //SingletonPattern();
+        //FactoryPattern();
+        //BridgePattern();
         ObjectPoolPattern();
-        MementoPattern();
         CompositePattern();
-        DecoratorPattern();
+        //MementoPattern();
+        //DecoratorPattern();
     }
 }
