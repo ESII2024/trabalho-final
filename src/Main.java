@@ -63,7 +63,6 @@ public class Main {
         videoMovel.display();
         Plataforma videoDesktop = new DesktopPlataforma(video);
         videoDesktop.display();
-
     }
 
     private static void ObjectPoolPattern() {
@@ -79,18 +78,22 @@ public class Main {
     private static void MementoPattern() {
         print.pattern("MementoPattern");
         CursoComponente myCursoComponente = new CursoComponente("My Component.Course");
-        CursoProgresso progress1 = new CursoProgresso("Component.Lesson 1", 50);
+
+        CursoProgresso progress1 = new CursoProgresso(new LicaoComponente("Lição 1"), 50);
         myCursoComponente.setProgress(progress1);
+
         CursoProgresso savedProgress = myCursoComponente.saveProgress();
-        print.test("Current Component.Lesson: " + myCursoComponente.getProgress().getLicaoAtual());
-        print.test("Component.Lesson Progress: " + myCursoComponente.getProgress().getLicaoProgresso());
-        CursoProgresso progress2 = new CursoProgresso("Component.Lesson 2", 25);
+        print.test("Current Component.Lesson: " + myCursoComponente.getProgress().getComponente().getNome());
+        print.test("Component.Lesson Progress: " + myCursoComponente.getProgress().getProgresso());
+
+        CursoProgresso progress2 = new CursoProgresso(new LicaoComponente("Lição 2"), 25);
+
         myCursoComponente.setProgress(progress2);
-        print.test("Current Component.Lesson: " + myCursoComponente.getProgress().getLicaoAtual());
-        print.test("Component.Lesson Progress: " + myCursoComponente.getProgress().getLicaoProgresso());
+        print.test("Current Component.Lesson: " + myCursoComponente.getProgress().getComponente().getNome());
+        print.test("Component.Lesson Progress: " + myCursoComponente.getProgress().getProgresso());
         myCursoComponente.restoreProgress(savedProgress);
-        print.test("Current Component.Lesson: " + myCursoComponente.getProgress().getLicaoAtual());
-        print.test("Component.Lesson Progress: " + myCursoComponente.getProgress().getLicaoProgresso());
+        print.test("Current Component.Lesson: " + myCursoComponente.getProgress().getComponente().getNome());
+        print.test("Component.Lesson Progress: " + myCursoComponente.getProgress().getProgresso());
     }
 
     private static void CompositePattern() {
@@ -119,12 +122,12 @@ public class Main {
     }
 
     private static void Teste() {
-        SingletonPattern();
-        FactoryPattern();
-        BridgePattern();
-        ObjectPoolPattern();
+        //SingletonPattern();
+        //FactoryPattern();
+        //BridgePattern();
+        //ObjectPoolPattern();
         MementoPattern();
-        CompositePattern();
-        DecoratorPattern();
+        //CompositePattern();
+        //DecoratorPattern();
     }
 }
