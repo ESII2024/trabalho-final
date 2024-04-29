@@ -25,15 +25,15 @@ public class Main {
     private static void FactoryPattern() {
         print.pattern("FactoryPattern");
 
-        ObjetoFabrica fabrica = new ConteudoFabrica();
+        ObjetoFabrica<Conteudo> fabrica = new ConteudoFabrica();
 
-        Conteudo articuloObjeto = (Conteudo)fabrica.createObjeto(ConteudoTipo.ARTICULO);
+        Conteudo articuloObjeto = fabrica.createObjeto(ConteudoTipo.ARTICULO);
         articuloObjeto.display();
 
-        Conteudo videoObjeto = (Conteudo)fabrica.createObjeto(ConteudoTipo.VIDEO);
+        Conteudo videoObjeto = fabrica.createObjeto(ConteudoTipo.VIDEO);
         videoObjeto.display();
 
-        Conteudo quizObjeto = (Conteudo)fabrica.createObjeto(ConteudoTipo.QUIZ);
+        Conteudo quizObjeto = fabrica.createObjeto(ConteudoTipo.QUIZ);
         quizObjeto.display();
     }
 
@@ -75,6 +75,20 @@ public class Main {
             connection2.releaseConnection(connection2);
     }
 
+    private static void CompositePattern() {
+        print.pattern("CompositePattern");
+        Componente lesson1 = new LicaoComponente("Componente.Lição 1");
+        Componente lesson2 = new LicaoComponente("Componente.Lição 2");
+        Componente licaoglobal = new LicaoComponente("Componente.Lição Global");
+        Componente course1 = new CursoComponente("Componente.Curso 1");
+        course1.addComponente(lesson1);
+        course1.addComponente(lesson2);
+        course1.display();
+        print.blank();
+        licaoglobal.addComponente(course1);
+        licaoglobal.display();
+    }
+
     private static void MementoPattern() {
         print.pattern("MementoPattern");
         CursoComponente myCursoComponente = new CursoComponente("My Component.Course");
@@ -96,20 +110,6 @@ public class Main {
         print.test("Component.Lesson Progress: " + myCursoComponente.getProgress().getProgresso());
     }
 
-    private static void CompositePattern() {
-        print.pattern("CompositePattern");
-        Componente lesson1 = new LicaoComponente("Componente.Lição 1");
-        Componente lesson2 = new LicaoComponente("Componente.Lição 2");
-        Componente licaoglobal = new LicaoComponente("Componente.Lição Global");
-        Componente course1 = new CursoComponente("Componente.Curso 1");
-        course1.addComponente(lesson1);
-        course1.addComponente(lesson2);
-        course1.display();
-        print.blank();
-        licaoglobal.addComponente(course1);
-        licaoglobal.display();
-    }
-
     private static void DecoratorPattern() {
         print.pattern("DecoratorPattern");
         QuizConteudo quiz = new QuizConteudo();
@@ -126,8 +126,8 @@ public class Main {
         //FactoryPattern();
         //BridgePattern();
         //ObjectPoolPattern();
-        MementoPattern();
         //CompositePattern();
+        MementoPattern();
         //DecoratorPattern();
     }
 }
