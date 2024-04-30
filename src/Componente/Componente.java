@@ -2,9 +2,12 @@ package Componente;
 
 import java.util.ArrayList;
 
+// class abstract serve como base para as classes licaoComponente e cursoComponente que lhe dao extend
 public abstract class Componente {
-    protected ArrayList<Componente> componentes = new ArrayList<>();
-    protected String nome;
+    protected ArrayList<Componente> componentes = new ArrayList<>(); //lista de componentes filhos
+    protected String nome; // nome do componente
+
+    //Métodos
 
     public Componente(String nome) {
         this.nome = nome;

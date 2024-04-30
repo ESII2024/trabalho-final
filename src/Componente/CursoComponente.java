@@ -5,8 +5,9 @@ import Uteis.print;
 import java.util.ArrayList;
 
 public class CursoComponente extends Componente {
-    private CursoProgresso progress;
+    private CursoProgresso progress; // para o memento
 
+    // Métodos para o memento (progress)
 
     public CursoComponente(String nome) {
         super(nome);
