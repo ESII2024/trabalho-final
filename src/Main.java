@@ -1,12 +1,15 @@
 import Complemento.*;
 import Componente.*;
-import Objeto.ObjetoFabrica;
+import Exceptions.*;
+import Objeto.*;
 import Uteis.*;
 import Conteudo.*;
 import ObjectPool.*;
 import Plataforma.*;
 import SingletonPattern.*;
 import Uteis.Enums.*;
+
+import java.net.HttpURLConnection;
 
 public class Main {
     public static void main(String[] args) {
@@ -66,13 +69,25 @@ public class Main {
     }
 
     private static void ObjectPoolPattern() {
-        print.pattern("ObjectPoolPattern");
-        DatabaseConnection connection1 = DatabaseConnection.getConnection();
-        DatabaseConnection connection2 = DatabaseConnection.getConnection();
-        if (connection1 != null)
-            connection1.releaseConnection(connection1);
-        if (connection2 != null)
-            connection2.releaseConnection(connection2);
+        try {
+            DatabaseConnection pool = DatabaseConnection.getInstance();
+            pool.setMaxPoolSize(5);
+
+            for (int i = 0; i < 7; i++) {
+                try {
+                    HttpURLConnection connection = pool.acquire();
+                    System.out.println("Connection acquired: " + connection);
+
+                    pool.release(connection);
+                    System.out.println("Connection released: " + connection);
+                } catch (PoolExhaustedException e) {
+                    System.out.println("Error: " + e.getMessage());
+                }
+            }
+            pool.resetPool();
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 
     private static void CompositePattern() {
@@ -125,9 +140,9 @@ public class Main {
         //SingletonPattern();
         //FactoryPattern();
         //BridgePattern();
-        //ObjectPoolPattern();
-        //CompositePattern();
-        MementoPattern();
+        ObjectPoolPattern();
+        CompositePattern();
+        //MementoPattern();
         //DecoratorPattern();
     }
 }
