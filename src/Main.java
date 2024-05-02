@@ -75,7 +75,7 @@ public class Main {
 
             for (int i = 0; i < 7; i++) {
                 try {
-                    HttpURLConnection connection = pool.acquire();
+                    String connection = pool.acquire();
                     System.out.println("Connection acquired: " + connection);
 
                     pool.release(connection);

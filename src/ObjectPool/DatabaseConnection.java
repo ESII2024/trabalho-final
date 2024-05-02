@@ -11,7 +11,7 @@ import java.util.Random;
 
 public class DatabaseConnection {
     private static DatabaseConnection instance;
-    private final ArrayList<HttpURLConnection> pool;
+    private final ArrayList<String> pool;
     private int maxPoolSize;
 
     private DatabaseConnection() {
@@ -25,9 +25,9 @@ public class DatabaseConnection {
         return instance;
     }
 
-    public synchronized HttpURLConnection acquire() throws PoolExhaustedException, IOException {
+    public synchronized String acquire() throws PoolExhaustedException {
         if (pool.size() < maxPoolSize) {
-            HttpURLConnection httpURLConnection = createNewConnection();
+            String httpURLConnection = createNewConnection();
             pool.add(httpURLConnection);
             return httpURLConnection;
         } else {
@@ -35,16 +35,15 @@ public class DatabaseConnection {
         }
     }
 
-    private synchronized HttpURLConnection createNewConnection() throws IOException {
-        return (HttpURLConnection) new java.net.URL("http://example.com/" + UTEIS.gerarNumeroAleatorio()).openConnection();
+    private synchronized String createNewConnection() {
+        return "http://example.com/" + UTEIS.gerarNumeroAleatorio();
     }
 
-    public synchronized void release(HttpURLConnection conn) throws ObjectNotFoundException {
+    public synchronized void release(String conn) throws ObjectNotFoundException {
         if (!pool.contains(conn)) {
             throw new ObjectNotFoundException();
         }
         try {
-            conn.disconnect();
             pool.remove(conn);
         } catch (Exception e) {
             throw new ObjectNotFoundException();
