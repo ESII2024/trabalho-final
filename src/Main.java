@@ -140,9 +140,9 @@ public class Main {
         //SingletonPattern();
         //FactoryPattern();
         //BridgePattern();
-        ObjectPoolPattern();
-        CompositePattern();
-        //MementoPattern();
-        //DecoratorPattern();
+        //ObjectPoolPattern();
+        //CompositePattern();
+        MementoPattern();
+        DecoratorPattern();
     }
 }
