@@ -92,16 +92,26 @@ public class Main {
 
     private static void CompositePattern() {
         print.pattern("CompositePattern");
-        Componente lesson1 = new LicaoComponente("Componente.Lição 1");
-        Componente lesson2 = new LicaoComponente("Componente.Lição 2");
-        Componente licaoglobal = new LicaoComponente("Componente.Lição Global");
-        Componente course1 = new CursoComponente("Componente.Curso 1");
-        course1.addComponente(lesson1);
-        course1.addComponente(lesson2);
-        course1.display();
-        print.blank();
-        licaoglobal.addComponente(course1);
-        licaoglobal.display();
+        CursoComponente link = new CursoComponente("Curso 1");
+
+        LicaoComponente submenu = new LicaoComponente("Licao 1");
+
+        CursoComponente link1 = new CursoComponente("Curso 2");
+
+        LicaoComponente submenu2 = new LicaoComponente("Lição 2");
+
+        CursoComponente link2 = new CursoComponente("Curso 3");
+
+        submenu2.addComponente(link2);
+
+        submenu.addComponente(link1);
+        submenu.addComponente(submenu2);
+
+        System.out.println("Link:");
+        link.display();
+
+        System.out.println("\nSubmenu:");
+        submenu.display();
     }
 
     private static void MementoPattern() {
@@ -140,9 +150,9 @@ public class Main {
         //SingletonPattern();
         //FactoryPattern();
         //BridgePattern();
-        //ObjectPoolPattern();
-        //CompositePattern();
-        MementoPattern();
-        DecoratorPattern();
+        ObjectPoolPattern();
+        CompositePattern();
+        //MementoPattern();
+        //DecoratorPattern();
     }
 }

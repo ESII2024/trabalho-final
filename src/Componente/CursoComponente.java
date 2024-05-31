@@ -35,8 +35,5 @@ public class CursoComponente extends Componente {
     @Override
     public void display() {
         print.log("Curso: " + getNome());
-        for (Componente componente : getComponentes()) {
-            componente.display();
-        }
     }
 }
